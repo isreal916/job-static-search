@@ -10,8 +10,16 @@
   position: absolute;
   top:140px;
   left:200px;
+  @media screen  and (max-width:375px){
+    left:0px;
+    width:340px;
+    left:0;
+  }
   &_filter{
     display:flex;
+    @media screen and (max-width:375px) {
+      flex-wrap:wrap;
+    }
   }
   &_clear{
    color:hsl(180, 29%, 50%);
