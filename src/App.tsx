@@ -5,29 +5,30 @@ import { useReducer, createContext } from "react";
 import { stateType, Action } from "./type";
 // @ts-ignore
 type contextType = {
-  appDispatch:Function,
-  state:stateType,
-  
-
-}
+  appDispatch: Function;
+  state: stateType;
+};
 export const stateContext = createContext<contextType | null>(null);
 function reducer(state: stateType, action: Action): stateType {
   switch (action.type) {
     case "addtoFilter":
       const payload = state.filter.includes(action.payload)
-        ? false
+        ? null
         : action.payload;
-        let filteredData;
-        if(payload !== false){
-          filteredData =   state.data.filter((item) => {
-            return [...state.filter, payload].every((lang) =>
-              item.languages
-                .concat(item.tools, item.level, item.role)
-                .includes(lang)
-            );
-          });
-        }
-      
+      let filteredData;
+      if (payload === null) {
+        console.error("false added to array");
+      }
+      filteredData = state.data
+        .filter((item) => {
+          return [...state.filter, payload].every((lang) =>
+            item.languages
+              .concat(item.tools, item.level, item.role)
+              .includes(lang)
+          );
+        })
+        .filter((filter) => filter !== null);
+
       console.log([...state.filter, payload]);
       return {
         ...state,
@@ -38,7 +39,7 @@ function reducer(state: stateType, action: Action): stateType {
     case "deleteFilter":
       const newFilter = state.filter.filter((item) => item !== action.payload);
       console.log(newFilter);
-      
+
       const filteredDatas = data.filter((item) => {
         return newFilter.every((lang) =>
           item.languages
@@ -51,7 +52,7 @@ function reducer(state: stateType, action: Action): stateType {
       return { ...state, filter: newFilter, data: filteredDatas };
 
     case "clearFilter":
-      return { ...state, filter: [] ,data:data};
+      return { ...state, filter: [], data: data };
     default:
       return state;
   }

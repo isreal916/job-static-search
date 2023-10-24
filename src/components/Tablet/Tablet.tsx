@@ -2,7 +2,6 @@ import {useContext} from 'react';
 import './Tablet.scss';
 import { Filter } from '..';
 import { stateContext } from '../../App';
-import { stateType } from '../../type';
 
 export interface TabletProps {
   prop: Array<string>;

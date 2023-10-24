@@ -7,7 +7,7 @@ export interface FilterProps {
 }
 
 export function Filter({ type, onFilter }: FilterProps) {
-  if(!type){
+  if(type === null){
 return false;
   }
   else{

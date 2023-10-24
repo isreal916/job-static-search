@@ -12,10 +12,21 @@
   // margin-left:20px;
 
 }
+@media screen and (max-width:375px) {
+  flex-direction:column;
+  width:100%;
+  height:fit-content;
+  align-items: flex-start;
+}
   &_details {
     display: flex;
     flex-direction: column;
     margin-left:20px;
+    width:80%;
+    @media screen and (max-width:375px) {
+      border-bottom:2px solid gray;
+    }
+    
 
     &>* {
       margin-top: -14px;
@@ -25,7 +36,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
+      @media screen and (max-width:375px) {
+        // flex-direction:column;
+justify-content: start;
+      }
+      
       p {
         color: hsl(180, 29%, 50%)
       }
@@ -35,6 +50,12 @@
 &_button_group{
  display:flex;
  margin-left:100px;
+ @media screen and (max-width:375px) {
+  // flex-direction:column;
+ margin-left:0px;
+ flex-wrap: wrap;
+}
+
 &>.button{
   color: hsl(180, 8%, 52%) ;
   background-color: hsl(180, 31%, 95%);
@@ -58,6 +79,10 @@
     height: 140px;
     margin-top: 22px;
     margin-left: 10px;
+    @media screen and (max-width:375px) {
+      margin-top: 0px;
+    }
+    
   }
 
   img {
