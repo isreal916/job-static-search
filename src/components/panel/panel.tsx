@@ -45,7 +45,7 @@ export function Panel({ data = false}: panelProps) {
       <div className="panel_button_group">
       {buttonarray &&
         buttonarray.map((data) => {
-          return <button className='button' onClick={()=>{stateContexts.appDispatch({type:'addtoFilter',payload:data})}}>{data}</button>;
+          return <button className='button' key={data} onClick={()=>{stateContexts.appDispatch({type:'addtoFilter',payload:data})}}>{data}</button>;
         })
        
         }

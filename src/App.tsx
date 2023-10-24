@@ -7,7 +7,6 @@ import { stateType, Action } from "./type";
 export const stateContext = createContext(null);
 function reducer(state: stateType, action: Action): stateType {
   switch (action.type) {
-    // Handle different actions and update the state accordingly
     case "addtoFilter":
       const payload = state.filter.includes(action.payload)
         ? false
@@ -24,7 +23,6 @@ function reducer(state: stateType, action: Action): stateType {
         }
       
       console.log([...state.filter, payload]);
-
       return {
         ...state,
         filter: [...state.filter, payload],

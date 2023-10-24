@@ -24,7 +24,7 @@ export function Tablet({prop}: TabletProps) {
   return( 
   <div className='Tablet'>
     <div className="Tablet_filter">
-    { prop.map(prop => <Filter type={prop} onFilter={onFilter} /> )}
+    { prop.map(prop => <Filter type={prop} key={prop} onFilter={onFilter} /> )}
 
     </div>
    <div className="Tablet_clear" onClick={onClear}>Clear</div>
