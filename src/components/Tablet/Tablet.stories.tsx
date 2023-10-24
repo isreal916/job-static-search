@@ -9,13 +9,7 @@ import {Tablet} from './Tablet';
 const meta: Meta = {
   component: Tablet,
   parameters: {
-    // Embedding Figma designs
-    // The embed appears in the "Design" tab of the story
-    // Learn more: https://pocka.github.io/storybook-addon-designs/?path=/docs/docs-figma-readme--page
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/...?node-id=...',
-    },
+   
   },
 };
 
@@ -29,4 +23,6 @@ export const Basic = Template.bind({});
 
 // Story args
 // Learn more: https://storybook.js.org/docs/react/writing-stories/args
-Basic.args = {};
+Basic.args = {
+  prop:['CSS','JavaScript']
+};
