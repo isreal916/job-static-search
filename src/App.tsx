@@ -12,29 +12,35 @@ export const stateContext = createContext<contextType | null>(null);
 function reducer(state: stateType, action: Action): stateType {
   switch (action.type) {
     case "addtoFilter":
-      const payload = state.filter.includes(action.payload)
-        ? null
-        : action.payload;
-      let filteredData;
-      if (payload === null) {
-        console.error("false added to array");
-      }
-      filteredData = state.data
-        .filter((item) => {
-          return [...state.filter, payload].every((lang) =>
+      const payload = action.payload === false || state.filter.includes(action.payload)
+      ? null
+      : action.payload;
+    
+    if (payload === null) {
+      console.error("null value skipped");
+    }
+    
+    let filteredData = state.data;
+    
+    if (payload !== null && payload !== false) {
+      filteredData = filteredData
+        .filter((item) =>
+          [...state.filter, payload].every((lang) =>
             item.languages
               .concat(item.tools, item.level, item.role)
               .includes(lang)
-          );
-        })
-        .filter((filter) => filter !== null);
-
-      console.log([...state.filter, payload]);
-      return {
-        ...state,
-        filter: [...state.filter, payload],
-        data: filteredData,
-      };
+          )
+        );
+    }
+    
+    console.log([...state.filter, payload]);
+    
+    return {
+      ...state,
+      filter: payload === null || payload === false ? [...state.filter] : [...state.filter, payload],
+      data: filteredData,
+    };
+    
 
     case "deleteFilter":
       const newFilter = state.filter.filter((item) => item !== action.payload);
