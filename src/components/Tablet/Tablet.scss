@@ -1,0 +1,26 @@
+.Tablet {
+  display:flex;
+  width:900px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  align-items:center;
+  justify-content: space-between;
+  padding:20px;
+  z-index: 4px;
+  position: absolute;
+  top:140px;
+  left:200px;
+  &_filter{
+    display:flex;
+  }
+  &_clear{
+   color:hsl(180, 29%, 50%);
+   cursor:pointer;
+   font-family:medium;
+
+   &:hover{
+    border-bottom: 1px solid hsl(180, 29%, 50%);
+   }
+  }
+
+}
