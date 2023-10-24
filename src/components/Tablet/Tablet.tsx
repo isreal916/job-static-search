@@ -13,7 +13,7 @@ type contextType = {
 
 }
 export function Tablet({prop}: TabletProps) {
-  const stateContexts  = useContext<contextType>(stateContext)
+  const stateContexts  = useContext< |null>(stateContext)
 
   const onFilter =(type:string)=>{
     stateContexts.appDispatch({type:'deleteFilter',payload:type})
