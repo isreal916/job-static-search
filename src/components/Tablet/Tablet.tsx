@@ -1,4 +1,4 @@
-import {useContext, usestate} from 'react';
+import {useContext} from 'react';
 import './Tablet.scss';
 import { Filter } from '..';
 import { stateContext } from '../../App';
@@ -7,13 +7,9 @@ import { stateType } from '../../type';
 export interface TabletProps {
   prop: Array<string>;
 }
-type contextType = {
-  appDispatch:Function,
-  state:stateType,
 
-}
 export function Tablet({prop}: TabletProps) {
-  const stateContexts  = useContext< |null>(stateContext)
+  const stateContexts  = useContext(stateContext)
 
   const onFilter =(type:string)=>{
     stateContexts.appDispatch({type:'deleteFilter',payload:type})

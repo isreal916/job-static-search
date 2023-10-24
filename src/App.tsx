@@ -4,7 +4,13 @@ import { data } from "./data";
 import { useReducer, createContext } from "react";
 import { stateType, Action } from "./type";
 // @ts-ignore
-export const stateContext = createContext(null);
+type contextType = {
+  appDispatch:Function,
+  state:stateType,
+  
+
+}
+export const stateContext = createContext<contextType | null>(null);
 function reducer(state: stateType, action: Action): stateType {
   switch (action.type) {
     case "addtoFilter":
