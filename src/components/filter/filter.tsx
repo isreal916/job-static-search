@@ -2,7 +2,11 @@ import './filter.scss';
 import { FaXmark } from 'react-icons/fa6';
 
 export interface FilterProps {
+<<<<<<< HEAD
   type?: string ; 
+=======
+  type?: string ; // Change the type to string or appropriate data type
+>>>>>>> 17af74750ee33ce37c6839f2f4328bb92cd37478
   onFilter: (type:any) => void;
 }
 
